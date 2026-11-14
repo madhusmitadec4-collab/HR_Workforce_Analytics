@@ -1,0 +1,80 @@
+table q_Training4
+	lineageTag: 7abe1f45-335f-4fd9-bad6-a1c3265233e9
+
+	column Training_ID
+		dataType: string
+		lineageTag: 509d0fc3-8c99-4fb4-a1ef-3ddd5f93f4a1
+		summarizeBy: none
+		sourceColumn: Training_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employee_ID
+		dataType: string
+		lineageTag: e5674737-8afa-47f9-b930-648fdb8581bf
+		summarizeBy: none
+		sourceColumn: Employee_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Training_Name
+		dataType: string
+		lineageTag: 38843a3d-d361-4c44-ba38-76458ccf35d4
+		summarizeBy: none
+		sourceColumn: Training_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Training_Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f540a320-87af-4ac2-bb01-e6ad201a98c6
+		summarizeBy: none
+		sourceColumn: Training_Date
+
+		variation Variation
+			isDefault
+			relationship: 6928f2d0-00b2-4a0d-9072-f1634a4ac8bd
+			defaultHierarchy: LocalDateTable_c659a4e9-14d8-4f8d-9517-d3bd776b1ffb.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Training_Status
+		dataType: string
+		lineageTag: 88ab7f5c-518b-48dd-bebf-a9d0f596c601
+		summarizeBy: none
+		sourceColumn: Training_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Training_Hours
+		dataType: int64
+		formatString: 0
+		lineageTag: 991d749d-17a3-4b01-9466-82e095113289
+		summarizeBy: sum
+		sourceColumn: Training_Hours
+
+		annotation SummarizationSetBy = Automatic
+
+	column Assessment_Score
+		dataType: double
+		lineageTag: 9689f92b-dd10-4a0f-819c-c430aea0ce5c
+		summarizeBy: sum
+		sourceColumn: Assessment_Score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition q_Training4 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\madhu\HR_Project.xlsx"), null, true),
+				    q_Training_Table = Source{[Item="q_Training",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(q_Training_Table,{{"Training_ID", type text}, {"Employee_ID", type text}, {"Training_Name", type text}, {"Training_Date", type datetime}, {"Training_Status", type text}, {"Training_Hours", Int64.Type}, {"Assessment_Score", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

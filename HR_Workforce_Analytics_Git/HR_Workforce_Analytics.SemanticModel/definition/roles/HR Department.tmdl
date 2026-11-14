@@ -1,0 +1,7 @@
+role 'HR Department'
+	modelPermission: read
+
+	tablePermission q_Employees1 = [Department] == "HR"
+
+	annotation PBI_Id = fae436c1656749fc9a3961554d839062
+

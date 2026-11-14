@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "eea38b091650d979482e",
+  "position": {
+    "x": 10.291629675538953,
+    "y": 880.96350022613444,
+    "z": 6,
+    "height": 102.91629675538954,
+    "width": 1786.6269116735623,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Key Insight: Overall training completion is 64.83%. IT has the highest number of completed training records, while Finance has the lowest. Attendance remains relatively stable across departments, ranging from approximately 87% to 89%.",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Arial Black",
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

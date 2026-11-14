@@ -1,0 +1,62 @@
+table 'Date Table'
+	lineageTag: f45d91b6-880d-4c7b-a994-e27fb4c2d5a3
+	dataCategory: Time
+
+	measure 'Applications YTD' = TOTALYTD(COUNTROWS(q_Recruitment2),'Date Table'[Date])
+		formatString: 0
+		lineageTag: 4018807f-fc68-4f8e-9d8d-9d67ef5d7409
+
+	measure 'Applications MTD' = TOTALMTD(COUNTROWS(q_Recruitment2),'Date Table'[Date])
+		formatString: 0
+		lineageTag: f2ab3282-4a33-4dce-ae79-c55092898187
+
+	measure 'Applications Previous YEAR' =
+			
+			CALCULATE(
+			    [Applications YTD],
+			    SAMEPERIODLASTYEAR('Date Table'[Date])
+			)
+		formatString: 0
+		lineageTag: fe8806d5-adb0-493c-aed8-315b67ed3dc9
+
+	measure 'Applications YoY %' = DIVIDE([Applications YTD]-[Applications Previous YEAR],[Applications Previous YEAR],0)
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: a928fee9-4d11-4e8a-99ab-811fd18d2cea
+
+	column Date
+		isKey
+		formatString: General Date
+		lineageTag: e0a215f1-2956-4a1d-8063-2bafc4b4e631
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = YEAR('Date Table'[Date])
+		formatString: 0
+		lineageTag: f07327b5-fe94-47df-8cd3-0187b42997f5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = MONTH('Date Table'[Date])
+		formatString: 0
+		lineageTag: 84ab869a-9885-4d0a-a72f-86238569275f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name' = FORMAT('Date Table'[Date],"MMM")
+		lineageTag: c57f60aa-acb7-4c6c-9d0b-ca3466c56072
+		summarizeBy: none
+		sortByColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Date Table' = calculated
+		mode: import
+		source = CALENDAR(DATE(2024,1,1),DATE(2026,12,31))
+
+	annotation PBI_Id = 9a85693fb3394a26aec47dcdede7c53f
+

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "329445319378bd67a034",
+  "position": {
+    "x": 644.25601768873844,
+    "y": 0,
+    "z": 2,
+    "height": 382.84862393004909,
+    "width": 627.78941020787613,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "q_Employees1"
+                    }
+                  },
+                  "Property": "Employment_Status"
+                }
+              },
+              "queryRef": "q_Employees1.Employment_Status",
+              "nativeQueryRef": "Employment_Status",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Performance5"
+                        }
+                      },
+                      "Property": "Performance_Rating"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(q_Performance5.Performance_Rating)",
+              "nativeQueryRef": "Average of Performance_Rating"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "q_Performance5"
+                      }
+                    },
+                    "Property": "Performance_Rating"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ba00dca8e9012aa76b0a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "q_Performance5"
+                  }
+                },
+                "Property": "Performance_Rating"
+              }
+            },
+            "Function": 1
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3421d17bbc70788bb3c8",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "q_Employees1"
+              }
+            },
+            "Property": "Employment_Status"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

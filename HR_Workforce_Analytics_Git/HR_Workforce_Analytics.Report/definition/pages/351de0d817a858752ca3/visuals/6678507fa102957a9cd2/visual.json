@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "6678507fa102957a9cd2",
+  "position": {
+    "x": 1282.3370575721535,
+    "y": 0,
+    "z": 4,
+    "height": 187.30766009480897,
+    "width": 244.9407862778271,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "q_Attendance3"
+                    }
+                  },
+                  "Property": "High Performers"
+                }
+              },
+              "queryRef": "q_Attendance3.High Performers",
+              "nativeQueryRef": "High Performers"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "q_Attendance3"
+                  }
+                },
+                "Property": "High Performers"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3217b0de107943d901b5",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "q_Attendance3"
+              }
+            },
+            "Property": "High Performers"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

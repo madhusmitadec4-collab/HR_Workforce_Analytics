@@ -1,0 +1,43 @@
+relationship 3bebeb0a-9488-44db-9888-28fea58e6b9c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: q_Employees1.Joining_Date
+	toColumn: LocalDateTable_3d4bcf58-e3ec-4ab2-acb6-91cea9dbe64f.Date
+
+relationship 9ac09a50-12b8-4639-84fd-3c818e9ad96a
+	joinOnDateBehavior: datePartOnly
+	fromColumn: q_Employees1.Exit_Date
+	toColumn: LocalDateTable_073a6887-fc5f-4f61-b656-7b4aea2d5756.Date
+
+relationship f14cbb1b-fb9e-44d8-8f00-c9265fa4e9c5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: q_Attendance3.Month
+	toColumn: LocalDateTable_36b1d032-af66-4ec3-bc68-386dda0a83a8.Date
+
+relationship 6928f2d0-00b2-4a0d-9072-f1634a4ac8bd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: q_Training4.Training_Date
+	toColumn: LocalDateTable_c659a4e9-14d8-4f8d-9517-d3bd776b1ffb.Date
+
+relationship 43ad4cb9-483a-4009-9136-ea37698a92b7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: q_Performance5.Review_Date
+	toColumn: LocalDateTable_7da1e789-a783-44a5-a407-e190690c3f49.Date
+
+relationship AutoDetected_abeed149-f00d-42a3-9c14-1b9ead75373a
+	fromColumn: q_Attendance3.Employee_ID
+	toColumn: q_Employees1.Employee_ID
+
+relationship AutoDetected_b8555aa6-5a47-4cec-ace5-57dc72e8da67
+	fromColumn: q_Training4.Employee_ID
+	toColumn: q_Employees1.Employee_ID
+
+relationship AutoDetected_ef858329-6638-4949-954d-254c0f80c37b
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: q_Performance5.Employee_ID
+	toColumn: q_Employees1.Employee_ID
+
+relationship 5a494532-53a5-5979-766e-9590ad90bdb8
+	fromColumn: q_Recruitment2.Recruitment_Date
+	toColumn: 'Date Table'.Date
+

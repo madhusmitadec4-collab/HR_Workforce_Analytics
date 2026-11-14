@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "9dbdafc9cb915b207040",
+  "position": {
+    "x": 10.291629675538953,
+    "y": 918.01336705807466,
+    "z": 2002,
+    "height": 104.97462269049733,
+    "width": 1879.251578753413,
+    "tabOrder": 2002
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Key Insight:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Arial Black",
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": " LinkedIn has the highest joining rate at 21.93%, while Naukri generates the highest number of applications (143). Recruitment activity peaked in July with 58 applications.",
+                    "textStyle": {
+                      "fontFamily": "Arial Black",
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

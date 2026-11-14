@@ -1,0 +1,117 @@
+table q_Employees1
+	lineageTag: fe771ccc-ad6f-4e32-8abc-27a0eeec9ddf
+
+	column Employee_ID
+		dataType: string
+		lineageTag: aac70e1f-d4cf-4ec8-b693-7ba87b4d0ced
+		summarizeBy: none
+		sourceColumn: Employee_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employee_Name
+		dataType: string
+		lineageTag: 3a84144c-35f5-45f5-9115-c5971c9339d8
+		summarizeBy: none
+		sourceColumn: Employee_Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: 890c0a31-5ed7-46cd-8e53-921d6e2ac6ab
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: bf30b4ef-6d26-417e-a0cb-f265ac2efbcf
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 2858df1e-fec5-4429-9eab-feff97d1bcbd
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Joining_Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 182b5d05-857e-407a-a17e-f9987f26d512
+		summarizeBy: none
+		sourceColumn: Joining_Date
+
+		variation Variation
+			isDefault
+			relationship: 3bebeb0a-9488-44db-9888-28fea58e6b9c
+			defaultHierarchy: LocalDateTable_3d4bcf58-e3ec-4ab2-acb6-91cea9dbe64f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employment_Status
+		dataType: string
+		lineageTag: b43d4239-2907-4acd-8fb1-3786327c0e46
+		summarizeBy: none
+		sourceColumn: Employment_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Education
+		dataType: string
+		lineageTag: 714fc09d-5d15-4020-9479-c2a1fcccbae4
+		summarizeBy: none
+		sourceColumn: Education
+
+		annotation SummarizationSetBy = Automatic
+
+	column Annual_Salary
+		dataType: int64
+		formatString: 0
+		lineageTag: 9674148c-65d1-47ff-93e0-bc8f080d750e
+		summarizeBy: sum
+		sourceColumn: Annual_Salary
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 2029328d-b411-45b8-8896-f8a04f74b106
+		summarizeBy: sum
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exit_Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0365a86e-b4bc-42fe-aa8c-db2a266ef1c9
+		summarizeBy: none
+		sourceColumn: Exit_Date
+
+		variation Variation
+			isDefault
+			relationship: 9ac09a50-12b8-4639-84fd-3c818e9ad96a
+			defaultHierarchy: LocalDateTable_073a6887-fc5f-4f61-b656-7b4aea2d5756.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition q_Employees1 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\madhu\HR_Project.xlsx"), null, true),
+				    q_Employees_Table = Source{[Item="q_Employees",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(q_Employees_Table,{{"Employee_ID", type text}, {"Employee_Name", type text}, {"Department", type text}, {"Location", type text}, {"Gender", type text}, {"Joining_Date", type datetime}, {"Employment_Status", type text}, {"Education", type text}, {"Annual_Salary", Int64.Type}, {"Age", Int64.Type}, {"Exit_Date", type datetime}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

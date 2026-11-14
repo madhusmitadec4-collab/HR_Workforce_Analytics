@@ -1,0 +1,577 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Default View",
+  "name": "b2e12621524a539c3d83",
+  "options": {
+    "targetVisualNames": [],
+    "preserveNewVisualVisibility": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "0cd84af463b000801e77",
+    "sections": {
+      "0cd84af463b000801e77": {
+        "visualContainers": {
+          "90eb018563666e462870": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3a284b08957e561227d9",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Attendance3"
+                        }
+                      },
+                      "Property": "Attrition_Risk_Rate"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Attendance3"
+                        }
+                      },
+                      "Property": "Attrition_Risk_Rate"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "b728036cb95be1b24e0d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "18ca14359704eb17a330",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Attendance3"
+                        }
+                      },
+                      "Property": "Actual_Attrition_Rate"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Attendance3"
+                        }
+                      },
+                      "Property": "Actual_Attrition_Rate"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "ba66129b58b108e12257": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "befa00c413b3a101976e",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Employees1"
+                        }
+                      },
+                      "Property": "Employment_Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "66e444fac2ae26414416",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "donutChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Employees1"
+                        }
+                      },
+                      "Property": "Employment_Status"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c8f8cfe94ae9873073ab": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "bf2504c0a50126d8090a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Employees1"
+                        }
+                      },
+                      "Property": "Department"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Dropdown'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Employees1"
+                        }
+                      },
+                      "Property": "Department"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "c9688a80a8390dacd0bd": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "955c04bc310496000848",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "d36bb6a5c25eebba00aa": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "c8fa9e05a48094372ac5",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Employees1"
+                        }
+                      },
+                      "Property": "Department"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "82abd3cb501e08b671ea",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "clusteredColumnChart",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Employees1"
+                        }
+                      },
+                      "Property": "Department"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "dfa2fbe9ba6d5b9a304a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "0fdd5c6f0e6300e681d8",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "q",
+                        "Entity": "q_Employees1",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "q"
+                                    }
+                                  },
+                                  "Property": "Employment_Status"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Resigned'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Employees1"
+                        }
+                      },
+                      "Property": "Employment_Status"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "b174591e596920b1721c",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "f46385e5abba107dc692": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "ddf90f0eced30e566d0e",
+                  "type": "Categorical",
+                  "filter": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "q",
+                        "Entity": "q_Employees1",
+                        "Type": 0
+                      }
+                    ],
+                    "Where": [
+                      {
+                        "Condition": {
+                          "In": {
+                            "Expressions": [
+                              {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Source": "q"
+                                    }
+                                  },
+                                  "Property": "Employment_Status"
+                                }
+                              }
+                            ],
+                            "Values": [
+                              [
+                                {
+                                  "Literal": {
+                                    "Value": "'Active'"
+                                  }
+                                }
+                              ]
+                            ]
+                          }
+                        }
+                      }
+                    ]
+                  },
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "q_Employees1"
+                        }
+                      },
+                      "Property": "Employment_Status"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "fbcf4a4a0082d8778330",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "cardVisual",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "q_Employees1"
+                            }
+                          },
+                          "Property": "Employee_ID"
+                        }
+                      },
+                      "Function": 5
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "4cab21b9663d0edeb29b": {
+            "singleVisual": {
+              "visualType": "pageNavigator",
+              "objects": {}
+            }
+          }
+        }
+      }
+    },
+    "objects": {}
+  }
+}
