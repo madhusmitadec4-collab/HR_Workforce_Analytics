@@ -1,0 +1,99 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 184,
+        "y": 247.19999694824219
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 286.29943130500095,
+            "y": 504.94837326526749
+          },
+          "nodeIndex": "q_Attendance3",
+          "nodeLineageTag": "c8d664d2-51a6-4201-88d7-9ab5991bccb2",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.16920539022681,
+            "y": 151.23195712625426
+          },
+          "nodeIndex": "q_Employees1",
+          "nodeLineageTag": "fe771ccc-ad6f-4e32-8abc-27a0eeec9ddf",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 620.04238442130145,
+            "y": 216.79118992835231
+          },
+          "nodeIndex": "q_Performance5",
+          "nodeLineageTag": "43e79242-93e0-481d-9097-833a21cdabb9",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 35.442370688391179,
+            "y": 280.47418663263375
+          },
+          "nodeIndex": "q_Recruitment2",
+          "nodeLineageTag": "b0189474-36c1-40e4-85fb-a3f7dbf1eff9",
+          "size": {
+            "height": 380,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -50
+          },
+          "nodeIndex": "q_Training4",
+          "nodeLineageTag": "7abe1f45-335f-4fd9-bad6-a1c3265233e9",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 868.60001373291027,
+            "y": 327.47418663263375
+          },
+          "nodeIndex": "Date Table",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

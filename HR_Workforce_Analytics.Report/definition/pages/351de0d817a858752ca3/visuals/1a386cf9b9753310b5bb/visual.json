@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "1a386cf9b9753310b5bb",
+  "position": {
+    "x": 644.25601768873844,
+    "y": 382.84862393004909,
+    "z": 3,
+    "height": 383,
+    "width": 628,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "q_Employees1"
+                    }
+                  },
+                  "Property": "Annual_Salary"
+                }
+              },
+              "queryRef": "Sum(q_Employees1.Annual_Salary)",
+              "nativeQueryRef": "Annual_Salary",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "q_Performance5"
+                    }
+                  },
+                  "Property": "Performance_Rating"
+                }
+              },
+              "queryRef": "Sum(q_Performance5.Performance_Rating)",
+              "nativeQueryRef": "Performance_Rating"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "a7d7718f6b832c10b0ab",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "q_Employees1"
+              }
+            },
+            "Property": "Annual_Salary"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "923d376b10ca0c00bbe3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "q_Performance5"
+              }
+            },
+            "Property": "Performance_Rating"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

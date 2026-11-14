@@ -1,0 +1,91 @@
+table q_Recruitment2
+	lineageTag: b0189474-36c1-40e4-85fb-a3f7dbf1eff9
+
+	column Recruitment_ID
+		dataType: string
+		lineageTag: 0c3c6493-39bf-45bd-83cb-939db9c3df4a
+		summarizeBy: none
+		sourceColumn: Recruitment_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Candidate_ID
+		dataType: string
+		lineageTag: 0daa70be-9048-4e8a-a1dc-4a5974bca883
+		summarizeBy: none
+		sourceColumn: Candidate_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Recruitment_Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5668f5a0-3e94-4e48-93f2-80949556a21f
+		summarizeBy: none
+		sourceColumn: Recruitment_Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: a3620b22-407a-417f-8b5d-9c12a349114a
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column Location
+		dataType: string
+		lineageTag: 806fbe62-180f-48d5-a5e1-a944252e3e97
+		summarizeBy: none
+		sourceColumn: Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column Recruitment_Source
+		dataType: string
+		lineageTag: 0740c5a9-fae9-4308-96b1-a283e1fe370e
+		summarizeBy: none
+		sourceColumn: Recruitment_Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Application_Status
+		dataType: string
+		lineageTag: 2fd383e0-f8f5-486c-8a89-2bdc5e62c31b
+		summarizeBy: none
+		sourceColumn: Application_Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Days_to_Hire
+		dataType: int64
+		formatString: 0
+		lineageTag: ed8a4e57-8fb0-4832-aca7-6343e73b2236
+		summarizeBy: sum
+		sourceColumn: Days_to_Hire
+
+		annotation SummarizationSetBy = Automatic
+
+	column Candidate_Experience_Years
+		dataType: double
+		lineageTag: f45691a0-8c98-4b48-a4d0-0515d82b6a58
+		summarizeBy: sum
+		sourceColumn: Candidate_Experience_Years
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition q_Recruitment2 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\madhu\HR_Project.xlsx"), null, true),
+				    q_Recruitment_Table = Source{[Item="q_Recruitment",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(q_Recruitment_Table,{{"Recruitment_ID", type text}, {"Candidate_ID", type text}, {"Recruitment_Date", type datetime}, {"Department", type text}, {"Location", type text}, {"Recruitment_Source", type text}, {"Application_Status", type text}, {"Days_to_Hire", Int64.Type}, {"Candidate_Experience_Years", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

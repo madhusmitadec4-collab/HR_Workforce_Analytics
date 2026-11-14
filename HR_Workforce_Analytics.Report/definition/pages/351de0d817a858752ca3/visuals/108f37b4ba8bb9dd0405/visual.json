@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "108f37b4ba8bb9dd0405",
+  "position": {
+    "x": 34.99154089683244,
+    "y": 932.42164860382923,
+    "z": 6,
+    "height": 127.61620797668303,
+    "width": 1763.9853263873767,
+    "tabOrder": 6
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Key Insight:",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontFamily": "Arial Black",
+                      "fontSize": "18pt"
+                    }
+                  },
+                  {
+                    "value": " HR has the highest average performance rating at 3.71, while Finance has the lowest at 3.19. There are 162 high performers (ratings 4–5) and 30 low performers (ratings 1–2). Performance ratings are broadly similar across employment statuses, suggesting that attrition should be analyzed using additional factors rather than performance alone.",
+                    "textStyle": {
+                      "fontFamily": "Arial Black",
+                      "fontSize": "18pt"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

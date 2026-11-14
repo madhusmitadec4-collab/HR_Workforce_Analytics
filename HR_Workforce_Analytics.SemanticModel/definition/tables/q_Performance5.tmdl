@@ -1,0 +1,81 @@
+table q_Performance5
+	lineageTag: 43e79242-93e0-481d-9097-833a21cdabb9
+
+	column Performance_ID
+		dataType: string
+		lineageTag: 11c8368e-ed2d-4961-be5c-ea2461ead6f1
+		summarizeBy: none
+		sourceColumn: Performance_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employee_ID
+		dataType: string
+		lineageTag: 2a062cd6-1025-43ab-818c-6bdc67a7fb2d
+		summarizeBy: none
+		sourceColumn: Employee_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Review_Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 10f51928-a26a-400b-8ef3-a7637f629e4b
+		summarizeBy: none
+		sourceColumn: Review_Date
+
+		variation Variation
+			isDefault
+			relationship: 43ad4cb9-483a-4009-9136-ea37698a92b7
+			defaultHierarchy: LocalDateTable_7da1e789-a783-44a5-a407-e190690c3f49.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Performance_Rating
+		dataType: int64
+		formatString: 0
+		lineageTag: daaf248c-764d-4bb5-8e09-68697242a35c
+		summarizeBy: sum
+		sourceColumn: Performance_Rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column Goal_Achievement_Percentage
+		dataType: double
+		lineageTag: 41379a4f-8e3b-40e7-9f7d-8a919fa9f079
+		summarizeBy: sum
+		sourceColumn: Goal_Achievement_Percentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Promotion_Eligible
+		dataType: string
+		lineageTag: 0af83240-e254-496a-9947-a2eda19917a5
+		summarizeBy: none
+		sourceColumn: Promotion_Eligible
+
+		annotation SummarizationSetBy = Automatic
+
+	column Manager_Feedback_Score
+		dataType: int64
+		formatString: 0
+		lineageTag: d401cc0c-2ad5-4dc1-bb46-692e7fe4d659
+		summarizeBy: sum
+		sourceColumn: Manager_Feedback_Score
+
+		annotation SummarizationSetBy = Automatic
+
+	partition q_Performance5 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\madhu\HR_Project.xlsx"), null, true),
+				    q_Performance_Table = Source{[Item="q_Performance",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(q_Performance_Table,{{"Performance_ID", type text}, {"Employee_ID", type text}, {"Review_Date", type datetime}, {"Performance_Rating", Int64.Type}, {"Goal_Achievement_Percentage", type number}, {"Promotion_Eligible", type text}, {"Manager_Feedback_Score", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

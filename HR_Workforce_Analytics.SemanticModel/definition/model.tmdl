@@ -1,0 +1,32 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["q_Employees1","q_Recruitment2","q_Attendance3","q_Training4","q_Performance5"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table q_Employees1
+ref table DateTableTemplate_19935d07-49e8-4850-b7ff-260d414c8679
+ref table LocalDateTable_3d4bcf58-e3ec-4ab2-acb6-91cea9dbe64f
+ref table LocalDateTable_073a6887-fc5f-4f61-b656-7b4aea2d5756
+ref table q_Recruitment2
+ref table q_Attendance3
+ref table LocalDateTable_36b1d032-af66-4ec3-bc68-386dda0a83a8
+ref table q_Training4
+ref table LocalDateTable_c659a4e9-14d8-4f8d-9517-d3bd776b1ffb
+ref table q_Performance5
+ref table LocalDateTable_7da1e789-a783-44a5-a407-e190690c3f49
+ref table 'Date Table'
+
+ref role 'HR Department'
+
+ref cultureInfo en-US
+

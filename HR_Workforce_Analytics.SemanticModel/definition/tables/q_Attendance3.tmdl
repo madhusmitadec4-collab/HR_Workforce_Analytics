@@ -1,0 +1,137 @@
+table q_Attendance3
+	lineageTag: c8d664d2-51a6-4201-88d7-9ab5991bccb2
+
+	measure Actual_Attrition_Rate = DIVIDE(CALCULATE(COUNTROWS(q_Employees1),q_Employees1[Employment_Status]="Resigned"),COUNTROWS(q_Employees1),0)
+		lineageTag: 064b667a-f92f-4c85-b135-b2952fd4c4cc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Attrition_Risk_Rate = DIVIDE(CALCULATE(COUNTROWS(q_Employees1),q_Employees1[Employment_Status] IN {"Resigned","On Notice"}),COUNTROWS(q_Employees1),0)
+		lineageTag: d545a961-b536-486d-94cb-9bf9168c3d2a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Recruitment Rate' = DIVIDE(CALCULATE(COUNTROWS(q_Recruitment2),q_Recruitment2[Application_Status]="Joined"),COUNTROWS(q_Recruitment2),0)
+		lineageTag: 52d1194d-c38c-4946-a959-9e234169bad1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Training Completion Rate' = DIVIDE(CALCULATE(COUNTROWS(q_Training4),q_Training4[Training_Status]="Completed"),COUNTROWS(q_Training4),0)
+		lineageTag: 5ddf0622-8dfe-4280-a016-85a438dd215c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'High Performers' = CALCULATE(COUNTROWS(q_Performance5),q_Performance5[Performance_Rating]>=4)
+		formatString: 0
+		lineageTag: c959d666-3928-436b-a61e-cb1420b74243
+
+	measure 'Low Performers' = CALCULATE(COUNTROWS(q_Performance5),q_Performance5[Performance_Rating]<=2)
+		formatString: 0
+		lineageTag: ab4ecec6-3e46-48da-ae4a-ffee677bb6f1
+
+	column Attendance_ID
+		dataType: string
+		lineageTag: ad6a4983-9183-41a6-862b-e5a5bfcb4f11
+		summarizeBy: none
+		sourceColumn: Attendance_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Employee_ID
+		dataType: string
+		lineageTag: 23f9c81a-5254-4418-8878-ccb94f2f06cb
+		summarizeBy: none
+		sourceColumn: Employee_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4a8416e6-c67e-4f2f-a4f4-8c339b540b87
+		summarizeBy: none
+		sourceColumn: Month
+
+		variation Variation
+			isDefault
+			relationship: f14cbb1b-fb9e-44d8-8f00-c9265fa4e9c5
+			defaultHierarchy: LocalDateTable_36b1d032-af66-4ec3-bc68-386dda0a83a8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Working_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: c66752f3-8d02-4625-8cde-3b8859dc48b6
+		summarizeBy: sum
+		sourceColumn: Working_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Present_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: 393344d5-1a23-4c50-bec0-8f68eb3632a3
+		summarizeBy: sum
+		sourceColumn: Present_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Leave_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: 7f997cd1-8d8f-489f-9d16-97929849da1f
+		summarizeBy: sum
+		sourceColumn: Leave_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Late_Days
+		dataType: int64
+		formatString: 0
+		lineageTag: dd49eee3-8373-429f-9b94-145f5ebd75e0
+		summarizeBy: sum
+		sourceColumn: Late_Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attendance_Percentage
+		dataType: double
+		lineageTag: 5470f0d5-2661-4212-a92f-d2f23ce547f8
+		summarizeBy: sum
+		sourceColumn: Attendance_Percentage
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Present_Capped
+		dataType: int64
+		formatString: 0
+		lineageTag: d1fff833-718a-4658-86bc-514bfedee55b
+		summarizeBy: sum
+		sourceColumn: Present_Capped
+
+		annotation SummarizationSetBy = Automatic
+
+	column Attendance_Percentage_Clean
+		dataType: int64
+		formatString: 0
+		lineageTag: 87c00c9b-c8e7-412d-99f1-ee6df73058e0
+		summarizeBy: sum
+		sourceColumn: Attendance_Percentage_Clean
+
+		annotation SummarizationSetBy = Automatic
+
+	partition q_Attendance3 = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("D:\madhu\HR_Project.xlsx"), null, true),
+				    q_Attendance_Table = Source{[Item="q_Attendance",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(q_Attendance_Table,{{"Attendance_ID", type text}, {"Employee_ID", type text}, {"Month", type datetime}, {"Working_Days", Int64.Type}, {"Present_Days", Int64.Type}, {"Leave_Days", Int64.Type}, {"Late_Days", Int64.Type}, {"Attendance_Percentage", type number}, {"Present_Capped", Int64.Type}, {"Attendance_Percentage_Clean", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

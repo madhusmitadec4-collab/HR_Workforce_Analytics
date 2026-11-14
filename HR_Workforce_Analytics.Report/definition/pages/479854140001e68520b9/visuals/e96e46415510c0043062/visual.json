@@ -1,0 +1,183 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "e96e46415510c0043062",
+  "position": {
+    "x": 1003.0728265211025,
+    "y": 393.86712821195584,
+    "z": 2004,
+    "height": 480.37065637065643,
+    "width": 887.12128877646126,
+    "tabOrder": 2004
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date Table"
+                    }
+                  },
+                  "Property": "Applications YTD"
+                }
+              },
+              "queryRef": "Date Table.Applications YTD",
+              "nativeQueryRef": "Applications YTD",
+              "format": "0"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date Table"
+                    }
+                  },
+                  "Property": "Applications MTD"
+                }
+              },
+              "queryRef": "Date Table.Applications MTD",
+              "nativeQueryRef": "Applications MTD"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date Table"
+                    }
+                  },
+                  "Property": "Applications Previous YEAR"
+                }
+              },
+              "queryRef": "Date Table.Applications Previous YEAR",
+              "nativeQueryRef": "Applications Previous YEAR"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date Table"
+                    }
+                  },
+                  "Property": "Applications YoY %"
+                }
+              },
+              "queryRef": "Date Table.Applications YoY %",
+              "nativeQueryRef": "Applications YoY %"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date Table"
+                    }
+                  },
+                  "Property": "Month"
+                }
+              },
+              "queryRef": "Date Table.Month",
+              "nativeQueryRef": "Month"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date Table"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "Date Table.Year",
+              "nativeQueryRef": "Year"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date Table"
+                    }
+                  },
+                  "Property": "Month Name"
+                }
+              },
+              "queryRef": "Date Table.Month Name",
+              "nativeQueryRef": "Month Name"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d63f9b1a755499489e07",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date Table"
+              }
+            },
+            "Property": "Applications YTD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b5b03ac4bd4e1c9b2bd0",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date Table"
+              }
+            },
+            "Property": "Applications MTD"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2ea0d8b1ab205d762eb8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date Table"
+              }
+            },
+            "Property": "Applications Previous YEAR"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "864ec504ec6604730aee",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date Table"
+              }
+            },
+            "Property": "Applications YoY %"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
